@@ -4,11 +4,11 @@ using System;
 
 namespace HostA
 {
-    public class StartupHandler : IWantToRunWhenBusStartsAndStops
+    public class Startup : IWantToRunWhenBusStartsAndStops
     {
         private readonly IBus _bus;
 
-        public StartupHandler(IBus bus)
+        public Startup(IBus bus)
         {
             _bus = bus;
         }

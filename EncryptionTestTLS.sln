@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostB", "HostB\HostB.csproj", "{226EF8D3-A7A7-4ADB-BF8F-91B6989D2C3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostA", "HostA\HostA.csproj", "{FA32870D-C78D-471C-AEB4-B5B58B475064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{F3000A84-0224-4675-9B65-5445EF642526}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Models\Messages.csproj", "{F3000A84-0224-4675-9B65-5445EF642526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
