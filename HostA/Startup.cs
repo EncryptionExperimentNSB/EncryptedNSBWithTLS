@@ -17,8 +17,8 @@ namespace HostA
         {
             var commandB = new CommandB
             {
-                Id = Guid.NewGuid(),
-                DoB = DateTime.UtcNow,
+         //       Id = Guid.NewGuid(),
+          //      DoB = DateTime.UtcNow,
                 Name = "Trevor"
             };
 
