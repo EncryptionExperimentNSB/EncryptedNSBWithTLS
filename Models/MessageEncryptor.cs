@@ -17,12 +17,13 @@ namespace Models
 
             byte[] decryptedContent;
 
-            using (var rijAlg = Rijndael.Create())
+            using (_myRijndael)
             {
-                rijAlg.Key = _myRijndael.Key;
-                rijAlg.IV = _myRijndael.IV;
+                _myRijndael.Padding = PaddingMode.PKCS7;
+                _myRijndael.Key = _myRijndael.Key;
+                _myRijndael.IV = _myRijndael.IV;
 
-                var decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);
+                var decryptor = _myRijndael.CreateDecryptor(_myRijndael.Key, _myRijndael.IV);
 
                 var bytesAsString = "";
 
@@ -45,12 +46,13 @@ namespace Models
         {
             //transportMessage.Body = transportMessage.Body.Reverse().ToArray();
 
-            using (var rijAlg = Rijndael.Create())
+            using (_myRijndael)
             {
-                rijAlg.Key = _myRijndael.Key;
-                rijAlg.IV = _myRijndael.IV;
+                _myRijndael.Padding = PaddingMode.PKCS7;
+                _myRijndael.Key = _myRijndael.Key;
+                _myRijndael.IV = _myRijndael.IV;
 
-                var encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
+                var encryptor = _myRijndael.CreateEncryptor(_myRijndael.Key, _myRijndael.IV);
                 byte[] encrypted;
                 using (var msEncrypt = new MemoryStream())
                 {
@@ -62,6 +64,7 @@ namespace Models
                         }
                         encrypted = msEncrypt.ToArray();
                     }
+                    
                 }
                 transportMessage.Body = encrypted;
             }
