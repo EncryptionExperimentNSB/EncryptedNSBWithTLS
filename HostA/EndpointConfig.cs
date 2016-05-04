@@ -1,6 +1,6 @@
-using System.Configuration;
 using Autofac;
 using log4net.Config;
+using Models;
 using NServiceBus.Log4Net;
 using NServiceBus.Logging;
 using NServiceBus;
@@ -21,6 +21,7 @@ namespace HostA
             configuration.UsePersistence<InMemoryPersistence>();
             configuration.UseSerialization<JsonSerializer>();
             configuration.UseTransport<RabbitMQTransport>();
+            configuration.RegisterComponents(c => c.ConfigureComponent<MessageEncryptor>(DependencyLifecycle.InstancePerCall));
         }
     }
 }

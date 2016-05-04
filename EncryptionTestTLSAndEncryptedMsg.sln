@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostB", "HostB\HostB.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostA", "HostA\HostA.csproj", "{FA32870D-C78D-471C-AEB4-B5B58B475064}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Models\Messages.csproj", "{F3000A84-0224-4675-9B65-5445EF642526}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Models\Shared.csproj", "{F3000A84-0224-4675-9B65-5445EF642526}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

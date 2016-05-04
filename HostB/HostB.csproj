@@ -89,9 +89,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\Messages.csproj">
+    <ProjectReference Include="..\Models\Shared.csproj">
       <Project>{f3000a84-0224-4675-9b65-5445ef642526}</Project>
-      <Name>Messages</Name>
+      <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
