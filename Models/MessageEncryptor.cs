@@ -15,32 +15,7 @@ namespace Models
         {
             // transportMessage.Body = transportMessage.Body.Reverse().ToArray();
 
-            using (var rijAlg = Rijndael.Create())
-            {
-                rijAlg.Key = _myRijndael.Key;
-                rijAlg.IV = _myRijndael.IV;
-
-                var encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
-                byte[] encrypted;
-                using (var msEncrypt = new MemoryStream())
-                {
-                    using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (var swEncrypt = new StreamWriter(csEncrypt))
-                        {
-                            swEncrypt.Write(transportMessage.Body);
-                        }
-                        encrypted = msEncrypt.ToArray();
-                    }
-                }
-                transportMessage.Body = encrypted;
-            }
-        }
-
-        public void MutateOutgoing(LogicalMessage logicalMessage, TransportMessage transportMessage)
-        {
-            //transportMessage.Body = transportMessage.Body.Reverse().ToArray();
-            byte [] decryptedContent;
+            byte[] decryptedContent;
 
             using (var rijAlg = Rijndael.Create())
             {
@@ -64,6 +39,32 @@ namespace Models
                 decryptedContent = Encoding.ASCII.GetBytes(bytesAsString);
             }
             transportMessage.Body = decryptedContent;
+        }
+
+        public void MutateOutgoing(LogicalMessage logicalMessage, TransportMessage transportMessage)
+        {
+            //transportMessage.Body = transportMessage.Body.Reverse().ToArray();
+
+            using (var rijAlg = Rijndael.Create())
+            {
+                rijAlg.Key = _myRijndael.Key;
+                rijAlg.IV = _myRijndael.IV;
+
+                var encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
+                byte[] encrypted;
+                using (var msEncrypt = new MemoryStream())
+                {
+                    using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (var swEncrypt = new StreamWriter(csEncrypt))
+                        {
+                            swEncrypt.Write(transportMessage.Body);
+                        }
+                        encrypted = msEncrypt.ToArray();
+                    }
+                }
+                transportMessage.Body = encrypted;
+            }
         }
     }
 }
