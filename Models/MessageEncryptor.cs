@@ -51,9 +51,10 @@ namespace Models
                 _myRijndael.Padding = PaddingMode.PKCS7;
                 _myRijndael.Key = _myRijndael.Key;
                 _myRijndael.IV = _myRijndael.IV;
+                byte[] encrypted;
 
                 var encryptor = _myRijndael.CreateEncryptor(_myRijndael.Key, _myRijndael.IV);
-                byte[] encrypted;
+                
                 using (var msEncrypt = new MemoryStream())
                 {
                     using (var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write))
